@@ -1,2 +1,5 @@
-# edu
-Educational material
+# Educational material
+
+[RStan exercises](rstan)
+
+
