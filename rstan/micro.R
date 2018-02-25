@@ -1,4 +1,3 @@
-
 library(microbiome)
 data(atlas1006)
 x <- subset_samples(baseline(atlas1006), DNA_extraction_method == "p")

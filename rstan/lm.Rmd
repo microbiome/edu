@@ -32,13 +32,13 @@ figs <- captioner(prefix="Fig.")
 
 # Introduction
 
-**Target group** of this tutorial: people who are willing to learn about and experiment with Bayesian inference in a relatively light-weight manner.
+**Target group**: those who are willing to have their first encounters with Bayesian modeling and inference 
 
 **Learning goals** This tutorial gets you started in probabilistic programming. The aim is to learn how basic linear models can be implemented and extended using probabilistic programming tools, and understanding the underlying motivations and challenges.
 
-**Structure of the tutorial** This material provides starting points for experimenting with the tools and provides links to further online resources. The material is intended to be used in combination with lectures and hands-on instruction. 
+**Teaching method** This material provides pointers for experimentation and online resources. The material is intended to be used in combination with lectures and hands-on instruction. 
 
-## Probabilistic versus classical (frequentist) models
+## Probabilistic versus frequentist models
 
 Probabilistic programming provides alternatives to classical models. Often, the models are identical under particular modeling assumptions. The probabilistic framework provides expanded opportunities to modify the model structure, distributional assumptions, and prior information.
 
