@@ -13,13 +13,13 @@ output:
 
 # Introduction
 
-**Target group** of this tutorial: people who are willing to learn about and experiment with Bayesian inference in a relatively light-weight manner.
+**Target group**: those who are willing to have their first encounters with Bayesian modeling and inference 
 
 **Learning goals** This tutorial gets you started in probabilistic programming. The aim is to learn how basic linear models can be implemented and extended using probabilistic programming tools, and understanding the underlying motivations and challenges.
 
-**Structure of the tutorial** This material provides starting points for experimenting with the tools and provides links to further online resources. The material is intended to be used in combination with lectures and hands-on instruction. 
+**Teaching method** This material provides pointers for experimentation and online resources. The material is intended to be used in combination with lectures and hands-on instruction. 
 
-## Probabilistic versus classical (frequentist) models
+## Probabilistic versus frequentist models
 
 Probabilistic programming provides alternatives to classical models. Often, the models are identical under particular modeling assumptions. The probabilistic framework provides expanded opportunities to modify the model structure, distributional assumptions, and prior information.
 
@@ -67,17 +67,12 @@ Let us fit [probabilistic ANOVA model](http://mc-stan.org/rstanarm/articles/aov.
 
 
 
-```r
-post <- stan_aov(diversity ~ sex + nationality + bmi_group, data = df,
-                 prior = R2(location = 0.5))
-```
-
 ```
 ## 
 ## SAMPLING FOR MODEL 'lm' NOW (CHAIN 1).
 ## 
-## Gradient evaluation took 1.5e-05 seconds
-## 1000 transitions using 10 leapfrog steps per transition would take 0.15 seconds.
+## Gradient evaluation took 1.7e-05 seconds
+## 1000 transitions using 10 leapfrog steps per transition would take 0.17 seconds.
 ## Adjust your expectations accordingly!
 ## 
 ## 
@@ -94,15 +89,15 @@ post <- stan_aov(diversity ~ sex + nationality + bmi_group, data = df,
 ## Iteration: 1800 / 2000 [ 90%]  (Sampling)
 ## Iteration: 2000 / 2000 [100%]  (Sampling)
 ## 
-##  Elapsed Time: 0.223012 seconds (Warm-up)
-##                0.155396 seconds (Sampling)
-##                0.378408 seconds (Total)
+##  Elapsed Time: 0.180378 seconds (Warm-up)
+##                0.146166 seconds (Sampling)
+##                0.326544 seconds (Total)
 ## 
 ## 
 ## SAMPLING FOR MODEL 'lm' NOW (CHAIN 2).
 ## 
-## Gradient evaluation took 8e-06 seconds
-## 1000 transitions using 10 leapfrog steps per transition would take 0.08 seconds.
+## Gradient evaluation took 7e-06 seconds
+## 1000 transitions using 10 leapfrog steps per transition would take 0.07 seconds.
 ## Adjust your expectations accordingly!
 ## 
 ## 
@@ -119,9 +114,9 @@ post <- stan_aov(diversity ~ sex + nationality + bmi_group, data = df,
 ## Iteration: 1800 / 2000 [ 90%]  (Sampling)
 ## Iteration: 2000 / 2000 [100%]  (Sampling)
 ## 
-##  Elapsed Time: 0.195728 seconds (Warm-up)
-##                0.172846 seconds (Sampling)
-##                0.368574 seconds (Total)
+##  Elapsed Time: 0.154002 seconds (Warm-up)
+##                0.14468 seconds (Sampling)
+##                0.298682 seconds (Total)
 ## 
 ## 
 ## SAMPLING FOR MODEL 'lm' NOW (CHAIN 3).
@@ -144,9 +139,9 @@ post <- stan_aov(diversity ~ sex + nationality + bmi_group, data = df,
 ## Iteration: 1800 / 2000 [ 90%]  (Sampling)
 ## Iteration: 2000 / 2000 [100%]  (Sampling)
 ## 
-##  Elapsed Time: 0.180139 seconds (Warm-up)
-##                0.164917 seconds (Sampling)
-##                0.345056 seconds (Total)
+##  Elapsed Time: 0.150698 seconds (Warm-up)
+##                0.169142 seconds (Sampling)
+##                0.31984 seconds (Total)
 ## 
 ## 
 ## SAMPLING FOR MODEL 'lm' NOW (CHAIN 4).
@@ -169,9 +164,9 @@ post <- stan_aov(diversity ~ sex + nationality + bmi_group, data = df,
 ## Iteration: 1800 / 2000 [ 90%]  (Sampling)
 ## Iteration: 2000 / 2000 [100%]  (Sampling)
 ## 
-##  Elapsed Time: 0.190757 seconds (Warm-up)
-##                0.202785 seconds (Sampling)
-##                0.393542 seconds (Total)
+##  Elapsed Time: 0.175245 seconds (Warm-up)
+##                0.146739 seconds (Sampling)
+##                0.321984 seconds (Total)
 ```
 
 
@@ -213,20 +208,20 @@ Investigate the posterior samples:
 
 
 ```
-##   (Intercept)    sexMale nationalityAFR bmi_groupoverweight bmi_groupobese
-## 1    3.237151 -0.2882968     -0.7264619          -0.3447235    -0.44081862
-## 2    3.266103 -0.3191635     -0.7447252          -0.3180243    -0.50947996
-## 3    2.461461  0.1311067     -0.5253654           0.3772697    -0.09554517
-## 4    2.494157  0.1889572     -0.5280116           0.4606210    -0.02320149
-## 5    3.666957 -0.5558136     -0.7362872          -0.5333490    -0.92029889
-## 6    3.616087 -0.6719317     -0.7595259          -0.4747462    -0.93062458
-##       sigma log-fit_ratio        R2
-## 1 0.4933064   -0.08155225 0.3261753
-## 2 0.5085921   -0.04417510 0.3353587
-## 3 0.5772832    0.05112323 0.2922975
-## 4 0.5682038    0.05607990 0.3211467
-## 5 0.6172637    0.12994433 0.3088833
-## 6 0.5784347    0.11280686 0.3719359
+##   (Intercept)     sexMale nationalityAFR bmi_groupoverweight
+## 1    2.683323 -0.17207208     -0.3241046         -0.01748698
+## 2    2.913006 -0.10173861     -0.6053699         -0.16664293
+## 3    3.344086 -0.29229176     -0.5178681         -0.44801768
+## 4    2.711193 -0.14067112     -0.2360834          0.10085647
+## 5    2.588782 -0.04265028     -0.3080736          0.30595890
+## 6    2.142272 -0.16689869     -0.2498702          0.71472661
+##   bmi_groupobese     sigma log-fit_ratio         R2
+## 1   -0.202375734 0.5101767   -0.18618142 0.11154696
+## 2   -0.370665075 0.5071771   -0.09969045 0.26143719
+## 3   -0.581318555 0.5323261   -0.09144159 0.19968903
+## 4   -0.174963108 0.7108176    0.11565422 0.05694196
+## 5    0.008740636 0.6686634    0.08366242 0.11033833
+## 6   -0.012429354 0.5303461    0.02682531 0.37295806
 ```
 
 
