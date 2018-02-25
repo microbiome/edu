@@ -87,7 +87,7 @@ df$diversity <- diversities(x, "shannon")$shannon
 Let us fit [probabilistic ANOVA model](http://mc-stan.org/rstanarm/articles/aov.html).
 
 
-```{r model, warning=FALSE, message=FALSE}
+```{r model, warning=FALSE, message=FALSE, echo=FALSE}
 post <- stan_aov(diversity ~ sex + nationality + bmi_group, data = df,
                  prior = R2(location = 0.5))
 
