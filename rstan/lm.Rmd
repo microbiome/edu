@@ -64,7 +64,7 @@ library(rstanarm)
 
 # Example data
 
-Let us load example data. This data set from [Lahti et al. Nat. Comm. 5:4344, 2014](http://www.nature.com/ncomms/2014/140708/ncomms5344/full/ncomms5344.html) has microbiota profiles for 130 genus-like taxa across 1006 normal western adults from [Data Dryad](http://doi.org/10.5061/dryad.pk75d). Load the data in R:
+You can use your own data set, or load this example data. This data set from [Lahti et al. Nat. Comm. 5:4344, 2014](http://www.nature.com/ncomms/2014/140708/ncomms5344/full/ncomms5344.html) has microbiota profiles for 130 genus-like taxa across 1006 normal western adults from [Data Dryad](http://doi.org/10.5061/dryad.pk75d). Load the data in R:
 
 ```{r data, warning=FALSE, message=FALSE}
 # Load example data
@@ -79,6 +79,14 @@ df$diversity <- diversities(x, "shannon")$shannon
 ```
 
 
+# Exercise session 1
+
+
+# Exercise session 2
+
+
+# Exercise session 3
+
 
 # Analysis steps
 
@@ -87,7 +95,7 @@ df$diversity <- diversities(x, "shannon")$shannon
 Let us fit [probabilistic ANOVA model](http://mc-stan.org/rstanarm/articles/aov.html).
 
 
-```{r model, warning=FALSE, message=FALSE, echo=FALSE}
+```{r model, warning=FALSE, message=FALSE, echo=FALSE, eval=FALSE}
 post <- stan_aov(diversity ~ sex + nationality + bmi_group, data = df,
                  prior = R2(location = 0.5))
 
@@ -188,6 +196,8 @@ You can also change modeling assumptions, or construct more complex models. See 
 
 
 # Contact and acknowledgement
+
+[Link to the feedback form](https://docs.google.com/forms/d/e/1FAIpQLSdMegb7DaxXz7gaSTd2CiOlSW07EsjMZ-4zCKKi3ZEn8wYzOg/viewform?usp=sf_link)
 
 Regarding the course content, you can contact [Leo Lahti](http://www.iki.fi/Leo.Lahti).
 
